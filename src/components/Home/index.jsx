@@ -54,6 +54,12 @@ class Home extends Component {
   render() {
     const { posts , serachvalue } = this.state;
 
+    const filteredPosts = !serachvalue
+    ? posts.filter((post) => {
+       return post.title.toLowerCase().includes(post.title.toLowerCase())
+    })
+    :posts;
+
     return (
       <section className="container">
         <input
@@ -67,7 +73,7 @@ class Home extends Component {
 
 
         <div className="posts">
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <PostCard Key = {post.id} post = {post}/>
 
         ))}
