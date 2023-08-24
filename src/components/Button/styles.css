@@ -1,0 +1,13 @@
+button{
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: nome;
+    color: white;
+    background-color: #fbff00;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
