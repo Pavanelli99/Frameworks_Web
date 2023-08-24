@@ -44,11 +44,28 @@ class Home extends Component {
 
   };
 
+  handleSearch = (e)=> {
+    const {value} = e.target;
+    this.setState({serachvalue: value});
+    console.log(value);
+
+  };
+
   render() {
-    const { posts } = this.state;
+    const { posts , serachvalue } = this.state;
 
     return (
       <section className="container">
+        <input
+        type="text"
+        name ="txtSearch"
+        id = "txtSearch"
+        placeholder="Search..."
+        onChange={this.handleSearch}
+        value={serachvalue}
+        />
+
+
         <div className="posts">
         {posts.map((post) => (
           <PostCard Key = {post.id} post = {post}/>
