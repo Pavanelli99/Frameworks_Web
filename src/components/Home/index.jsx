@@ -5,6 +5,7 @@ import "./styles.css";
 import { Component } from "react";
 import { loadPosts } from "../../utils/load-posts";
 import { PostCard } from "../PostCard";
+import { Button } from "../Button";
 
 class Home extends Component {
 
@@ -44,7 +45,7 @@ class Home extends Component {
 
   };
 
-  handleSearch = (e)=> {
+  handleSearch = (e)=> { // Pesquisar
     const {value} = e.target;
     this.setState({serachvalue: value});
     console.log(value);
@@ -54,14 +55,14 @@ class Home extends Component {
   render() {
     const { posts , serachvalue } = this.state;
 
-    const filteredPosts = !serachvalue
+    const filteredPosts = !!serachvalue //operador de circuito
     ? posts.filter((post) => {
        return post.title.toLowerCase().includes(post.title.toLowerCase())
     })
     :posts;
 
     return (
-      <section className="container">
+      <section className="container"> 
         <input
         type="text"
         name ="txtSearch"
