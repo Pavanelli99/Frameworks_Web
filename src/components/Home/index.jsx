@@ -12,7 +12,7 @@ class Home extends Component {
   state = {
     posts: [],
     allPosts: [],
-    page: 0 ,
+    page: 0,
     postPerPage: 4,
   };
 
@@ -34,11 +34,11 @@ class Home extends Component {
 
 
   loadMorePosts = async () => {
-    const {page, postPerPage, allPosts, post} = this.state
+    const {page, postsPerPage, allPosts, post} = this.state
 
-    const nextPage = page + postPerPage
+    const nextPage = page + postsPerPage
 
-    const nextPosts = allPosts.slice(nextPage, nextPage + postPerPage)
+    const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage)
 
     this.setState({posts: [...post, ...nextPosts], page: nextPage}); //... significa destructor
      
@@ -79,7 +79,7 @@ class Home extends Component {
 
         ))}
         </div>
-        <button text = "Load more posts"  action ={this.loadMorePosts}/>
+        <Button text = "Load more posts"  action ={this.loadMorePosts}/>
       </section>
     );
   }
